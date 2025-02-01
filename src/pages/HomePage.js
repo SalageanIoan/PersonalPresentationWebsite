@@ -44,7 +44,7 @@ function HomePage() {
                     <div style={styles.highlights}>
                         <div style={styles.highlightCard}>
                             <FiCode style={styles.cardIcon} />
-                            <span>C/C++, C#, Java</span>
+                            <span>C/C++, C#, Java, Javascript</span>
                         </div>
                         <div style={styles.highlightCard}>
                             <FiCpu style={styles.cardIcon} />

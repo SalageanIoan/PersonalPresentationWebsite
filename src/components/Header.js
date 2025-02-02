@@ -1,16 +1,12 @@
-import React, { useState } from "react";
+// src/components/Header.js
+import React from "react";
 import { Link } from "react-router-dom";
-import { FiHome, FiFolder, FiUser, FiMail, FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
+import { FiHome, FiFolder, FiUser, FiMail, FiSun, FiMoon } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { useDarkMode } from "../context/DarkModeContext";
 
 const Header = () => {
     const { darkMode, toggleDarkMode } = useDarkMode();
-    const [menuOpen, setMenuOpen] = useState(false);
-
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
 
     return (
         <motion.header
@@ -74,39 +70,6 @@ const Header = () => {
             >
                 {darkMode ? <FiSun style={styles.toggleIcon} /> : <FiMoon style={styles.toggleIcon} />}
             </motion.button>
-            <motion.button
-                onClick={toggleMenu}
-                style={styles.menuButton}
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.8 }}
-            >
-                {menuOpen ? <FiX style={styles.menuIcon} /> : <FiMenu style={styles.menuIcon} />}
-            </motion.button>
-            {menuOpen && (
-                <motion.div
-                    style={darkMode ? styles.dropdownMenuDark : styles.dropdownMenu}
-                    initial={{ y: -20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.8 }}
-                >
-                    <Link to="/" style={styles.dropdownLink} onClick={toggleMenu}>
-                        <FiHome style={styles.navIcon} />
-                        Home
-                    </Link>
-                    <Link to="/projects" style={styles.dropdownLink} onClick={toggleMenu}>
-                        <FiFolder style={styles.navIcon} />
-                        Projects
-                    </Link>
-                    <Link to="/about" style={styles.dropdownLink} onClick={toggleMenu}>
-                        <FiUser style={styles.navIcon} />
-                        About
-                    </Link>
-                    <Link to="/contact" style={styles.dropdownLink} onClick={toggleMenu}>
-                        <FiMail style={styles.navIcon} />
-                        Contact
-                    </Link>
-                </motion.div>
-            )}
         </motion.header>
     );
 };
@@ -170,56 +133,6 @@ const styles = {
     },
     toggleIcon: {
         fontSize: "1.5rem",
-    },
-    menuButton: {
-        background: "none",
-        border: "none",
-        cursor: "pointer",
-        color: "white",
-        fontSize: "1.5rem",
-        display: "none",
-    },
-    menuIcon: {
-        fontSize: "1.5rem",
-    },
-    dropdownMenu: {
-        position: "absolute",
-        top: "100%",
-        right: 0,
-        backgroundColor: "#333",
-        padding: "1rem",
-        borderRadius: "0.5rem",
-        boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)",
-        zIndex: 1000,
-    },
-    dropdownMenuDark: {
-        position: "absolute",
-        top: "100%",
-        right: 0,
-        backgroundColor: "#111",
-        padding: "1rem",
-        borderRadius: "0.5rem",
-        boxShadow: "0 8px 16px rgba(0, 0, 0, 0.5)",
-        zIndex: 1000,
-    },
-    dropdownLink: {
-        textDecoration: "none",
-        color: "white",
-        display: "flex",
-        alignItems: "center",
-        gap: "0.5rem",
-        fontSize: "1rem",
-        fontWeight: "500",
-        padding: "0.5rem 0",
-        transition: "color 0.3s ease",
-    },
-    '@media (max-width: 768px)': {
-        nav: {
-            display: 'none',
-        },
-        menuButton: {
-            display: 'block',
-        },
     },
 };
 

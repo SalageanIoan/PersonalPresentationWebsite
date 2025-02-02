@@ -1,23 +1,26 @@
 import React from "react";
-import { FiDownload, FiBook, FiBriefcase, FiCode, FiGlobe, FiUsers, FiActivity, FiStar } from "react-icons/fi";
+import { FiDownload, FiBook, FiBriefcase, FiCode, FiUsers, FiActivity, FiStar } from "react-icons/fi";
 import { motion } from "framer-motion";
+import { useDarkMode } from "../context/DarkModeContext";
 
 const AboutPage = () => {
+    const { darkMode } = useDarkMode();
+
     return (
         <motion.section
-            style={styles.section}
+            style={darkMode ? styles.sectionDark : styles.section}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
         >
             <motion.div
-                style={styles.container}
+                style={darkMode ? styles.containerDark : styles.container}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
             >
-                <h1 style={styles.title}>About Me</h1>
-                <p style={styles.description}>
+                <h1 style={darkMode ? styles.titleDark : styles.title}>About Me</h1>
+                <p style={darkMode ? styles.descriptionDark : styles.description}>
                     With a wealth of experience in teamwork cultivated through numerous extracurricular activities, I thrive
                     in collaborative environments. I love learning to program because it’s like solving puzzles that
                     challenge my mind. Each line of code is a step towards creating something new. My adept communication
@@ -27,8 +30,8 @@ const AboutPage = () => {
                 </p>
 
                 <div style={styles.sectionContainer}>
-                    <h2 style={styles.sectionTitle}><FiBook style={styles.icon} /> Education</h2>
-                    <ul style={styles.list}>
+                    <h2 style={darkMode ? styles.sectionTitleDark : styles.sectionTitle}><FiBook style={styles.icon} /> Education</h2>
+                    <ul style={darkMode ? styles.listDark : styles.list}>
                         <li>
                             <strong>High School:</strong> Liceul Teoretic Gheorghe Marinescu, Târgu Mures (2019 - 2023)
                         </li>
@@ -47,8 +50,8 @@ const AboutPage = () => {
                 </div>
 
                 <div style={styles.sectionContainer}>
-                    <h2 style={styles.sectionTitle}><FiBriefcase style={styles.icon} /> Work Experience</h2>
-                    <ul style={styles.list}>
+                    <h2 style={darkMode ? styles.sectionTitleDark : styles.sectionTitle}><FiBriefcase style={styles.icon} /> Work Experience</h2>
+                    <ul style={darkMode ? styles.listDark : styles.list}>
                         <li>
                             <strong>Junior IT Engineer:</strong> Hirschmann Automotive, Târgu Mures (July 2024 - September 2024)
                             <ul>
@@ -59,8 +62,8 @@ const AboutPage = () => {
                 </div>
 
                 <div style={styles.sectionContainer}>
-                    <h2 style={styles.sectionTitle}><FiCode style={styles.icon} /> Skills</h2>
-                    <ul style={styles.list}>
+                    <h2 style={darkMode ? styles.sectionTitleDark : styles.sectionTitle}><FiCode style={styles.icon} /> Skills</h2>
+                    <ul style={darkMode ? styles.listDark : styles.list}>
                         <li>
                             <strong>Programming Languages:</strong> C/C++, Python, C#, Java, HTML, CSS, JavaScript,
                         </li>
@@ -78,8 +81,8 @@ const AboutPage = () => {
                 </div>
 
                 <div style={styles.sectionContainer}>
-                    <h2 style={styles.sectionTitle}><FiActivity style={styles.icon} /> Projects</h2>
-                    <ul style={styles.list}>
+                    <h2 style={darkMode ? styles.sectionTitleDark : styles.sectionTitle}><FiActivity style={styles.icon} /> Projects</h2>
+                    <ul style={darkMode ? styles.listDark : styles.list}>
                         <li>
                             <strong>Automatic Solar System:</strong>
                             <ul>
@@ -92,14 +95,14 @@ const AboutPage = () => {
                         <li>
                             <strong>GitHub Projects:</strong> Check out my personal projects on <a
                             href="https://github.com/SalageanIoan" target="_blank" rel="noopener noreferrer"
-                            style={styles.link}>GitHub</a>.
+                            style={darkMode ? styles.linkDark : styles.link}>GitHub</a>.
                         </li>
                     </ul>
                 </div>
 
                 <div style={styles.sectionContainer}>
-                    <h2 style={styles.sectionTitle}><FiUsers style={styles.icon} /> Volunteering</h2>
-                    <ul style={styles.list}>
+                    <h2 style={darkMode ? styles.sectionTitleDark : styles.sectionTitle}><FiUsers style={styles.icon} /> Volunteering</h2>
+                    <ul style={darkMode ? styles.listDark : styles.list}>
                         <li>
                             <strong>ESTIEM (European Students of Industrial Engineering and Management):</strong>
                             <ul>
@@ -113,10 +116,10 @@ const AboutPage = () => {
                 </div>
 
                 <div style={styles.sectionContainer}>
-                    <h2 style={styles.sectionTitle}><FiStar style={styles.icon} /> Hobbies and Interests</h2>
-                    <ul style={styles.list}>
+                    <h2 style={darkMode ? styles.sectionTitleDark : styles.sectionTitle}><FiStar style={styles.icon} /> Hobbies and Interests</h2>
+                    <ul style={darkMode ? styles.listDark : styles.list}>
                         <li>
-                            <strong>Embedded systems</strong> 
+                            <strong>Embedded systems</strong>
                         </li>
                         <li>
                             <strong>Karate:</strong> I practice Kyokushin karate, which challenges me physically and mentally
@@ -132,7 +135,7 @@ const AboutPage = () => {
                 <motion.a
                     href="/CV_Salagean_Ioan.pdf"
                     download="CV_Salagean_Ioan.pdf"
-                    style={styles.cvLink}
+                    style={darkMode ? styles.cvLinkDark : styles.cvLink}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                 >
@@ -153,6 +156,14 @@ const styles = {
         alignItems: "center",
         minHeight: "100vh",
     },
+    sectionDark: {
+        padding: "2rem",
+        background: "linear-gradient(45deg, #1f2937 0%, #111827 100%)",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+    },
     container: {
         backgroundColor: "rgba(255, 255, 255, 0.9)",
         padding: "2.5rem",
@@ -162,6 +173,15 @@ const styles = {
         backdropFilter: "blur(10px)",
         border: "1px solid rgba(255, 255, 255, 0.3)",
     },
+    containerDark: {
+        backgroundColor: "rgba(31, 41, 55, 0.9)",
+        padding: "2.5rem",
+        borderRadius: "24px",
+        maxWidth: "800px",
+        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.5)",
+        backdropFilter: "blur(10px)",
+        border: "1px solid rgba(31, 41, 55, 0.3)",
+    },
     title: {
         fontSize: "2.5rem",
         color: "#1f2937",
@@ -169,9 +189,23 @@ const styles = {
         fontWeight: "600",
         textAlign: "center",
     },
+    titleDark: {
+        fontSize: "2.5rem",
+        color: "#f9f9f9",
+        marginBottom: "1rem",
+        fontWeight: "600",
+        textAlign: "center",
+    },
     description: {
         fontSize: "1.1rem",
         color: "#4b5563",
+        lineHeight: "1.6",
+        marginBottom: "2rem",
+        textAlign: "center",
+    },
+    descriptionDark: {
+        fontSize: "1.1rem",
+        color: "#d1d5db",
         lineHeight: "1.6",
         marginBottom: "2rem",
         textAlign: "center",
@@ -187,6 +221,14 @@ const styles = {
         alignItems: "center",
         gap: "0.5rem",
     },
+    sectionTitleDark: {
+        fontSize: "1.8rem",
+        color: "#60a5fa",
+        marginBottom: "1rem",
+        display: "flex",
+        alignItems: "center",
+        gap: "0.5rem",
+    },
     icon: {
         fontSize: "1.5rem",
     },
@@ -194,6 +236,12 @@ const styles = {
         listStyleType: "disc",
         paddingLeft: "20px",
         color: "#4b5563",
+        lineHeight: "1.6",
+    },
+    listDark: {
+        listStyleType: "disc",
+        paddingLeft: "20px",
+        color: "#d1d5db",
         lineHeight: "1.6",
     },
     cvLink: {
@@ -209,8 +257,26 @@ const styles = {
         fontSize: "1rem",
         transition: "background-color 0.3s ease",
     },
+    cvLinkDark: {
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "0.5rem",
+        marginTop: "1rem",
+        padding: "12px 24px",
+        backgroundColor: "#2563eb",
+        color: "#fff",
+        textDecoration: "none",
+        borderRadius: "8px",
+        fontSize: "1rem",
+        transition: "background-color 0.3s ease",
+    },
     link: {
         color: "#3b82f6",
+        textDecoration: "none",
+        fontWeight: "500",
+    },
+    linkDark: {
+        color: "#60a5fa",
         textDecoration: "none",
         fontWeight: "500",
     },

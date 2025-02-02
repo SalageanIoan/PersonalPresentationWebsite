@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FiSend, FiUser, FiMail, FiMessageCircle } from "react-icons/fi";
 import { motion } from "framer-motion";
+import { useDarkMode } from "../context/DarkModeContext";
 import axios from "axios";
 
 function ContactPage() {
@@ -11,6 +12,7 @@ function ContactPage() {
     });
 
     const [sending, setSending] = useState(false); // To handle loading state
+    const { darkMode } = useDarkMode();
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -32,25 +34,25 @@ function ContactPage() {
 
     return (
         <motion.section
-            style={styles.section}
+            style={darkMode ? styles.sectionDark : styles.section}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
         >
             <motion.div
-                style={styles.container}
+                style={darkMode ? styles.containerDark : styles.container}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
             >
-                <h1 style={styles.title}>Contact Me</h1>
-                <p style={styles.description}>
+                <h1 style={darkMode ? styles.titleDark : styles.title}>Contact Me</h1>
+                <p style={darkMode ? styles.descriptionDark : styles.description}>
                     Have a question or want to work together? Feel free to reach out!
                 </p>
 
                 <form onSubmit={handleSubmit} style={styles.form}>
                     <div style={styles.inputGroup}>
-                        <FiUser style={styles.inputIcon} />
+                        <FiUser style={darkMode ? styles.inputIconDark : styles.inputIcon} />
                         <input
                             type="text"
                             name="name"
@@ -58,11 +60,11 @@ function ContactPage() {
                             onChange={handleChange}
                             placeholder="Your Name"
                             required
-                            style={styles.input}
+                            style={darkMode ? styles.inputDark : styles.input}
                         />
                     </div>
                     <div style={styles.inputGroup}>
-                        <FiMail style={styles.inputIcon} />
+                        <FiMail style={darkMode ? styles.inputIconDark : styles.inputIcon} />
                         <input
                             type="email"
                             name="email"
@@ -70,17 +72,17 @@ function ContactPage() {
                             onChange={handleChange}
                             placeholder="Your Email"
                             required
-                            style={styles.input}
+                            style={darkMode ? styles.inputDark : styles.input}
                         />
                     </div>
                     <div style={styles.inputGroup}>
-                        <FiMessageCircle style={styles.inputIcon} />
+                        <FiMessageCircle style={darkMode ? styles.inputIconDark : styles.inputIcon} />
                         <textarea
                             name="message"
                             value={formData.message}
                             onChange={handleChange}
                             required
-                            style={styles.textarea}
+                            style={darkMode ? styles.textareaDark : styles.textarea}
                         />
                     </div>
                     <motion.button
@@ -107,6 +109,14 @@ const styles = {
         alignItems: "center",
         minHeight: "100vh",
     },
+    sectionDark: {
+        padding: "2rem",
+        background: "linear-gradient(45deg, #1f2937 0%, #111827 100%)",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+    },
     container: {
         backgroundColor: "rgba(255, 255, 255, 0.9)",
         padding: "2.5rem",
@@ -117,6 +127,16 @@ const styles = {
         backdropFilter: "blur(10px)",
         border: "1px solid rgba(255, 255, 255, 0.3)",
     },
+    containerDark: {
+        backgroundColor: "rgba(31, 41, 55, 0.9)",
+        padding: "2.5rem",
+        borderRadius: "24px",
+        maxWidth: "600px",
+        width: "100%",
+        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.5)",
+        backdropFilter: "blur(10px)",
+        border: "1px solid rgba(31, 41, 55, 0.3)",
+    },
     title: {
         fontSize: "2.5rem",
         color: "#1f2937",
@@ -124,9 +144,23 @@ const styles = {
         fontWeight: "600",
         textAlign: "center",
     },
+    titleDark: {
+        fontSize: "2.5rem",
+        color: "#f9f9f9",
+        marginBottom: "1rem",
+        fontWeight: "600",
+        textAlign: "center",
+    },
     description: {
         fontSize: "1.1rem",
         color: "#4b5563",
+        lineHeight: "1.6",
+        marginBottom: "2rem",
+        textAlign: "center",
+    },
+    descriptionDark: {
+        fontSize: "1.1rem",
+        color: "#d1d5db",
         lineHeight: "1.6",
         marginBottom: "2rem",
         textAlign: "center",
@@ -147,6 +181,12 @@ const styles = {
         fontSize: "1.2rem",
         color: "#6b7280",
     },
+    inputIconDark: {
+        position: "absolute",
+        left: "1rem",
+        fontSize: "1.2rem",
+        color: "#9ca3af",
+    },
     input: {
         padding: "1rem 1rem 1rem 3rem",
         fontSize: "1rem",
@@ -155,6 +195,17 @@ const styles = {
         outline: "none",
         width: "100%",
         backgroundColor: "rgba(255, 255, 255, 0.8)",
+        transition: "border-color 0.3s ease",
+    },
+    inputDark: {
+        padding: "1rem 1rem 1rem 3rem",
+        fontSize: "1rem",
+        borderRadius: "12px",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        outline: "none",
+        width: "100%",
+        backgroundColor: "rgba(31, 41, 55, 0.8)",
+        color: "#fff",
         transition: "border-color 0.3s ease",
     },
     textarea: {
@@ -168,6 +219,21 @@ const styles = {
         maxHeight: "200px",
         width: "100%",
         backgroundColor: "rgba(255, 255, 255, 0.8)",
+        transition: "border-color 0.3s ease",
+        textAlign: "left",
+    },
+    textareaDark: {
+        padding: "1rem 1rem 1rem 3rem",
+        fontSize: "1rem",
+        borderRadius: "12px",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        outline: "none",
+        resize: "vertical",
+        minHeight: "50px",
+        maxHeight: "200px",
+        width: "100%",
+        backgroundColor: "rgba(31, 41, 55, 0.8)",
+        color: "#fff",
         transition: "border-color 0.3s ease",
         textAlign: "left",
     },

@@ -1,12 +1,16 @@
+// src/components/Header.js
 import React from "react";
 import { Link } from "react-router-dom";
-import { FiHome, FiFolder, FiUser, FiMail } from "react-icons/fi";
+import { FiHome, FiFolder, FiUser, FiMail, FiSun, FiMoon } from "react-icons/fi";
 import { motion } from "framer-motion";
+import { useDarkMode } from "../context/DarkModeContext";
 
 const Header = () => {
+    const { darkMode, toggleDarkMode } = useDarkMode();
+
     return (
         <motion.header
-            style={styles.header}
+            style={darkMode ? styles.headerDark : styles.header}
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
@@ -58,6 +62,14 @@ const Header = () => {
                     </Link>
                 </motion.div>
             </nav>
+            <motion.button
+                onClick={toggleDarkMode}
+                style={styles.toggleButton}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.8 }}
+            >
+                {darkMode ? <FiSun style={styles.toggleIcon} /> : <FiMoon style={styles.toggleIcon} />}
+            </motion.button>
         </motion.header>
     );
 };
@@ -71,6 +83,18 @@ const styles = {
         alignItems: "center",
         backdropFilter: "blur(10px)",
         borderBottom: "1px solid rgba(0, 0, 0, 0.1)",
+        position: "sticky",
+        top: 0,
+        zIndex: 1000,
+    },
+    headerDark: {
+        backgroundColor: "#111",
+        padding: "1rem 2rem",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        backdropFilter: "blur(10px)",
+        borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
         position: "sticky",
         top: 0,
         zIndex: 1000,
@@ -99,6 +123,16 @@ const styles = {
     navIcon: {
         fontSize: "1.2rem",
         color: "white",
+    },
+    toggleButton: {
+        background: "none",
+        border: "none",
+        cursor: "pointer",
+        color: "white",
+        fontSize: "1.5rem",
+    },
+    toggleIcon: {
+        fontSize: "1.5rem",
     },
 };
 

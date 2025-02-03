@@ -3,6 +3,7 @@ import { FiSend, FiUser, FiMail, FiMessageCircle } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { useDarkMode } from "../context/DarkModeContext";
 import axios from "axios";
+import {colors} from "../styles/colors";
 
 function ContactPage() {
     const [formData, setFormData] = useState({
@@ -11,7 +12,7 @@ function ContactPage() {
         message: "",
     });
 
-    const [sending, setSending] = useState(false); // To handle loading state
+    const [sending, setSending] = useState(false);
     const { darkMode } = useDarkMode();
 
     const handleChange = (e) => {
@@ -90,7 +91,7 @@ function ContactPage() {
                         style={styles.button}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        disabled={sending} // Disable the button while sending
+                        disabled={sending}
                     >
                         {sending ? "Sending..." : <><FiSend style={styles.buttonIcon} /> Send Message</>}
                     </motion.button>
@@ -103,7 +104,7 @@ function ContactPage() {
 const styles = {
     section: {
         padding: "2rem",
-        background: "linear-gradient(45deg, #f3f4f6 0%, #e5e7eb 100%)",
+        background: `linear-gradient(45deg, ${colors.lightGray} 0%, ${colors.gray} 100%)`,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -111,56 +112,56 @@ const styles = {
     },
     sectionDark: {
         padding: "2rem",
-        background: "linear-gradient(45deg, #1f2937 0%, #111827 100%)",
+        background: `linear-gradient(45deg, ${colors.darkerGray} 0%, ${colors.darkGray} 100%)`,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         minHeight: "100vh",
     },
     container: {
-        backgroundColor: "rgba(255, 255, 255, 0.9)",
+        backgroundColor: colors.white,
         padding: "2.5rem",
         borderRadius: "24px",
         maxWidth: "600px",
         width: "100%",
         boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
         backdropFilter: "blur(10px)",
-        border: "1px solid rgba(255, 255, 255, 0.3)",
+        border: `1px solid ${colors.darkBorder}`,
     },
     containerDark: {
-        backgroundColor: "rgba(31, 41, 55, 0.9)",
+        backgroundColor: colors.darkCardBackground,
         padding: "2.5rem",
         borderRadius: "24px",
         maxWidth: "600px",
         width: "100%",
         boxShadow: "0 8px 32px rgba(0, 0, 0, 0.5)",
         backdropFilter: "blur(10px)",
-        border: "1px solid rgba(31, 41, 55, 0.3)",
+        border: `1px solid ${colors.darkBorder}`,
     },
     title: {
         fontSize: "2.5rem",
-        color: "#1f2937",
+        color: colors.darkerGray,
         marginBottom: "1rem",
         fontWeight: "600",
         textAlign: "center",
     },
     titleDark: {
         fontSize: "2.5rem",
-        color: "#f9f9f9",
+        color: colors.darkText,
         marginBottom: "1rem",
         fontWeight: "600",
         textAlign: "center",
     },
     description: {
         fontSize: "1.1rem",
-        color: "#4b5563",
+        color: colors.textGray,
         lineHeight: "1.6",
         marginBottom: "2rem",
         textAlign: "center",
     },
     descriptionDark: {
         fontSize: "1.1rem",
-        color: "#d1d5db",
+        color: colors.lightTextGray,
         lineHeight: "1.6",
         marginBottom: "2rem",
         textAlign: "center",
@@ -179,46 +180,46 @@ const styles = {
         position: "absolute",
         left: "1rem",
         fontSize: "1.2rem",
-        color: "#6b7280",
+        color: colors.textGray,
     },
     inputIconDark: {
         position: "absolute",
         left: "1rem",
         fontSize: "1.2rem",
-        color: "#9ca3af",
+        color: colors.lightTextGray,
     },
     input: {
         padding: "1rem 1rem 1rem 3rem",
         fontSize: "1rem",
         borderRadius: "12px",
-        border: "1px solid rgba(0, 0, 0, 0.1)",
+        border: `1px solid ${colors.blueWhite}`,
         outline: "none",
         width: "100%",
-        backgroundColor: "rgba(255, 255, 255, 0.8)",
+        backgroundColor: colors.white,
         transition: "border-color 0.3s ease",
     },
     inputDark: {
         padding: "1rem 1rem 1rem 3rem",
         fontSize: "1rem",
         borderRadius: "12px",
-        border: "1px solid rgba(255, 255, 255, 0.1)",
+        border: `1px solid ${colors.lightdarkBlue}`,
         outline: "none",
         width: "100%",
-        backgroundColor: "rgba(31, 41, 55, 0.8)",
-        color: "#fff",
+        backgroundColor: colors.darkGray,
+        color: colors.white,
         transition: "border-color 0.3s ease",
     },
     textarea: {
         padding: "1rem 1rem 1rem 3rem",
         fontSize: "1rem",
         borderRadius: "12px",
-        border: "1px solid rgba(0, 0, 0, 0.1)",
+        border: `1px solid ${colors.blueWhite}`,
         outline: "none",
         resize: "vertical",
         minHeight: "50px",
         maxHeight: "200px",
         width: "100%",
-        backgroundColor: "rgba(255, 255, 255, 0.8)",
+        backgroundColor: colors.white,
         transition: "border-color 0.3s ease",
         textAlign: "left",
     },
@@ -226,21 +227,21 @@ const styles = {
         padding: "1rem 1rem 1rem 3rem",
         fontSize: "1rem",
         borderRadius: "12px",
-        border: "1px solid rgba(255, 255, 255, 0.1)",
+        border: `1px solid ${colors.lightdarkBlue}`,
         outline: "none",
         resize: "vertical",
         minHeight: "50px",
         maxHeight: "200px",
         width: "100%",
-        backgroundColor: "rgba(31, 41, 55, 0.8)",
-        color: "#fff",
+        backgroundColor: colors.darkGray,
+        color: colors.white,
         transition: "border-color 0.3s ease",
         textAlign: "left",
     },
     button: {
         padding: "1rem 2rem",
-        backgroundColor: "#3b82f6",
-        color: "#fff",
+        backgroundColor: colors.primaryBlue,
+        color: colors.white,
         border: "none",
         borderRadius: "12px",
         cursor: "pointer",

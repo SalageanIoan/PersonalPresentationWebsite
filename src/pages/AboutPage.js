@@ -2,6 +2,7 @@ import React from "react";
 import { FiDownload, FiBook, FiBriefcase, FiCode, FiUsers, FiActivity, FiStar } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { useDarkMode } from "../context/DarkModeContext";
+import { colors } from "../styles/colors";
 
 const AboutPage = () => {
     const { darkMode } = useDarkMode();
@@ -150,7 +151,7 @@ const AboutPage = () => {
 const styles = {
     section: {
         padding: "2rem",
-        background: "linear-gradient(45deg, #f3f4f6 0%, #e5e7eb 100%)",
+        background: `linear-gradient(45deg, ${colors.lightGray} 0%, ${colors.gray} 100%)`,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -158,7 +159,7 @@ const styles = {
     },
     sectionDark: {
         padding: "2rem",
-        background: "linear-gradient(45deg, #1f2937 0%, #111827 100%)",
+        background: `linear-gradient(45deg, ${colors.darkGray} 0%, ${colors.darkerGray} 100%)`,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -171,7 +172,7 @@ const styles = {
         maxWidth: "800px",
         boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
         backdropFilter: "blur(10px)",
-        border: "1px solid rgba(255, 255, 255, 0.3)",
+        border: `1px solid ${colors.lightWhite}`,
     },
     containerDark: {
         backgroundColor: "rgba(31, 41, 55, 0.9)",
@@ -180,32 +181,32 @@ const styles = {
         maxWidth: "800px",
         boxShadow: "0 8px 32px rgba(0, 0, 0, 0.5)",
         backdropFilter: "blur(10px)",
-        border: "1px solid rgba(31, 41, 55, 0.3)",
+        border: `1px solid ${colors.darkBorder}`,
     },
     title: {
         fontSize: "2.5rem",
-        color: "#1f2937",
+        color: colors.darkGray,
         marginBottom: "1rem",
         fontWeight: "600",
         textAlign: "center",
     },
     titleDark: {
         fontSize: "2.5rem",
-        color: "#f9f9f9",
+        color: colors.white,
         marginBottom: "1rem",
         fontWeight: "600",
         textAlign: "center",
     },
     description: {
         fontSize: "1.1rem",
-        color: "#4b5563",
+        color: colors.textGray,
         lineHeight: "1.6",
         marginBottom: "2rem",
         textAlign: "center",
     },
     descriptionDark: {
         fontSize: "1.1rem",
-        color: "#d1d5db",
+        color: colors.lightTextGray,
         lineHeight: "1.6",
         marginBottom: "2rem",
         textAlign: "center",
@@ -215,7 +216,7 @@ const styles = {
     },
     sectionTitle: {
         fontSize: "1.8rem",
-        color: "#3b82f6",
+        color: colors.primaryBlue,
         marginBottom: "1rem",
         display: "flex",
         alignItems: "center",
@@ -223,7 +224,7 @@ const styles = {
     },
     sectionTitleDark: {
         fontSize: "1.8rem",
-        color: "#60a5fa",
+        color: colors.lightBlue,
         marginBottom: "1rem",
         display: "flex",
         alignItems: "center",
@@ -235,13 +236,13 @@ const styles = {
     list: {
         listStyleType: "disc",
         paddingLeft: "20px",
-        color: "#4b5563",
+        color: colors.textGray,
         lineHeight: "1.6",
     },
     listDark: {
         listStyleType: "disc",
         paddingLeft: "20px",
-        color: "#d1d5db",
+        color: colors.lightTextGray,
         lineHeight: "1.6",
     },
     cvLink: {
@@ -250,8 +251,8 @@ const styles = {
         gap: "0.5rem",
         marginTop: "1rem",
         padding: "12px 24px",
-        backgroundColor: "#3b82f6",
-        color: "#fff",
+        backgroundColor: colors.primaryBlue,
+        color: colors.white,
         textDecoration: "none",
         borderRadius: "8px",
         fontSize: "1rem",
@@ -263,20 +264,20 @@ const styles = {
         gap: "0.5rem",
         marginTop: "1rem",
         padding: "12px 24px",
-        backgroundColor: "#2563eb",
-        color: "#fff",
+        backgroundColor: colors.darkBlue,
+        color: colors.white,
         textDecoration: "none",
         borderRadius: "8px",
         fontSize: "1rem",
         transition: "background-color 0.3s ease",
     },
     link: {
-        color: "#3b82f6",
+        color: colors.primaryBlue,
         textDecoration: "none",
         fontWeight: "500",
     },
     linkDark: {
-        color: "#60a5fa",
+        color: colors.lightBlue,
         textDecoration: "none",
         fontWeight: "500",
     },
@@ -284,5 +285,6 @@ const styles = {
         fontSize: "1.2rem",
     },
 };
+
 
 export default AboutPage;

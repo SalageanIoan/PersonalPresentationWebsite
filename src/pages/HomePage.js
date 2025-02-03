@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiCode, FiUser, FiCpu } from "react-icons/fi";
 import { useDarkMode } from "../context/DarkModeContext";
+import {colors} from "../styles/colors";
 
 function HomePage() {
     const navigate = useNavigate();
@@ -83,7 +84,7 @@ function HomePage() {
 const styles = {
     section: {
         padding: "2rem",
-        background: "linear-gradient(45deg, #f3f4f6 0%, #e5e7eb 100%)",
+        background: `linear-gradient(45deg, ${colors.lightGray} 0%, ${colors.gray} 100%)`,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -91,29 +92,29 @@ const styles = {
     },
     sectionDark: {
         padding: "2rem",
-        background: "linear-gradient(45deg, #1f2937 0%, #111827 100%)",
+        background: `linear-gradient(45deg, ${colors.darkerGray} 0%, ${colors.darkGray} 100%)`,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         minHeight: "100vh",
     },
     container: {
-        backgroundColor: "rgba(255, 255, 255, 0.9)",
+        backgroundColor: colors.white,
         padding: "2.5rem",
         borderRadius: "24px",
         maxWidth: "800px",
         boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
         backdropFilter: "blur(10px)",
-        border: "1px solid rgba(255, 255, 255, 0.3)",
+        border: `1px solid ${colors.darkBorder}`,
     },
     containerDark: {
-        backgroundColor: "rgba(31, 41, 55, 0.9)",
+        backgroundColor: colors.darkCardBackground,
         padding: "2.5rem",
         borderRadius: "24px",
         maxWidth: "800px",
         boxShadow: "0 8px 32px rgba(0, 0, 0, 0.5)",
         backdropFilter: "blur(10px)",
-        border: "1px solid rgba(31, 41, 55, 0.3)",
+        border: `1px solid ${colors.darkBorder}`,
     },
     header: {
         textAlign: "center",
@@ -121,49 +122,49 @@ const styles = {
     },
     icon: {
         fontSize: "3rem",
-        color: "#3b82f6",
+        color: colors.primaryBlue,
         marginBottom: "1rem",
     },
     title: {
         fontSize: "2.5rem",
-        color: "#1f2937",
+        color: colors.darkerGray,
         marginBottom: "0.5rem",
         fontWeight: "600",
         letterSpacing: "-0.025em",
     },
     titleDark: {
         fontSize: "2.5rem",
-        color: "#f9f9f9",
+        color: colors.darkText,
         marginBottom: "0.5rem",
         fontWeight: "600",
         letterSpacing: "-0.025em",
     },
     subtitle: {
         fontSize: "1.25rem",
-        color: "#6b7280",
+        color: colors.textGray,
         fontWeight: "500",
     },
     subtitleDark: {
         fontSize: "1.25rem",
-        color: "#d1d5db",
+        color: colors.lightTextGray,
         fontWeight: "500",
     },
     description: {
         fontSize: "1.1rem",
-        color: "#4b5563",
+        color: colors.textGray,
         lineHeight: "1.6",
         marginBottom: "2rem",
         textAlign: "center",
     },
     descriptionDark: {
         fontSize: "1.1rem",
-        color: "#d1d5db",
+        color: colors.lightTextGray,
         lineHeight: "1.6",
         marginBottom: "2rem",
         textAlign: "center",
     },
     highlight: {
-        color: "#3b82f6",
+        color: colors.primaryBlue,
         fontWeight: "500",
     },
     highlights: {
@@ -173,28 +174,28 @@ const styles = {
         marginBottom: "2rem",
     },
     highlightCard: {
-        backgroundColor: "rgba(59, 130, 246, 0.1)",
+        backgroundColor: colors.lightCardBackground,
         padding: "1.25rem",
         borderRadius: "12px",
         display: "flex",
         alignItems: "center",
         gap: "0.75rem",
-        color: "#1f2937",
+        color: colors.darkerGray,
         fontWeight: "500",
     },
     highlightCardDark: {
-        backgroundColor: "rgba(59, 130, 246, 0.2)",
+        backgroundColor: colors.darkBlue,
         padding: "1.25rem",
         borderRadius: "12px",
         display: "flex",
         alignItems: "center",
         gap: "0.75rem",
-        color: "#d1d5db",
+        color: colors.lightTextGray,
         fontWeight: "500",
     },
     cardIcon: {
         fontSize: "1.5rem",
-        color: "#3b82f6",
+        color: colors.primaryBlue,
     },
     buttonGroup: {
         display: "flex",
@@ -204,8 +205,8 @@ const styles = {
     },
     button: {
         padding: "1rem 2rem",
-        background: "linear-gradient(45deg, #3b82f6 0%, #2563eb 100%)",
-        color: "#fff",
+        background: `linear-gradient(45deg, ${colors.primaryBlue} 0%, ${colors.darkBlue} 100%)`,
+        color: colors.white,
         border: "none",
         borderRadius: "8px",
         cursor: "pointer",
@@ -217,8 +218,8 @@ const styles = {
     },
     buttonSecondary: {
         padding: "1rem 2rem",
-        background: "linear-gradient(45deg, #3b82f6 0%, #2563eb 100%)",
-        color: "#fff",
+        background: `linear-gradient(45deg, ${colors.primaryBlue} 0%, ${colors.darkBlue} 100%)`,
+        color: colors.white,
         border: "none",
         borderRadius: "8px",
         cursor: "pointer",
@@ -230,8 +231,8 @@ const styles = {
     },
     buttonSecondaryDark: {
         padding: "1rem 2rem",
-        background: "linear-gradient(45deg, #3b82f6 0%, #2563eb 100%)",
-        color: "#d1d5db",
+        background: `linear-gradient(45deg, ${colors.primaryBlue} 0%, ${colors.darkBlue} 100%)`,
+        color: colors.lightTextGray,
         border: "none",
         borderRadius: "8px",
         cursor: "pointer",
@@ -242,11 +243,11 @@ const styles = {
         transition: "all 0.3s ease",
     },
     buttonIcon: {
-        color: "#fff",
+        color: colors.white,
         fontSize: "1.25rem",
     },
     buttonIconDark: {
-        color: "#fff",
+        color: colors.white,
         fontSize: "1.25rem",
     },
     "@media (max-width: 768px)": {

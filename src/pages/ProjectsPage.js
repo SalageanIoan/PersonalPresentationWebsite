@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FiFolder, FiGithub } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { useDarkMode } from "../context/DarkModeContext";
+import { colors } from "../styles/colors";
 
 const ProjectsPage = () => {
     const [repos, setRepos] = useState([]);
@@ -128,7 +129,7 @@ const ProjectsPage = () => {
 const styles = {
     section: {
         padding: "2rem",
-        background: "linear-gradient(45deg, #f3f4f6 0%, #e5e7eb 100%)",
+        background: `linear-gradient(45deg, ${colors.lightGray} 0%, ${colors.gray} 100%)`,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -136,54 +137,54 @@ const styles = {
     },
     sectionDark: {
         padding: "2rem",
-        background: "linear-gradient(45deg, #1f2937 0%, #111827 100%)",
+        background: `linear-gradient(45deg, ${colors.darkerGray} 0%, ${colors.darkGray} 100%)`,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         minHeight: "100vh",
     },
     container: {
-        backgroundColor: "rgba(255, 255, 255, 0.9)",
+        backgroundColor: colors.white,
         padding: "2.5rem",
         borderRadius: "15px",
         maxWidth: "800px",
         boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
         backdropFilter: "blur(10px)",
-        border: "1px solid rgba(255, 255, 255, 0.3)",
+        border: `1px solid ${colors.darkBorder}`,
     },
     containerDark: {
-        backgroundColor: "rgba(31, 41, 55, 0.9)",
+        backgroundColor: colors.darkCardBackground,
         padding: "2.5rem",
         borderRadius: "15px",
         maxWidth: "800px",
         boxShadow: "0 8px 32px rgba(0, 0, 0, 0.5)",
         backdropFilter: "blur(10px)",
-        border: "1px solid rgba(31, 41, 55, 0.3)",
+        border: `1px solid ${colors.darkBorder}`,
     },
     title: {
         fontSize: "2.5rem",
-        color: "#1f2937",
+        color: colors.darkerGray,
         marginBottom: "1rem",
         fontWeight: "600",
         textAlign: "center",
     },
     titleDark: {
         fontSize: "2.5rem",
-        color: "#f9f9f9",
+        color: colors.darkText,
         marginBottom: "1rem",
         fontWeight: "600",
         textAlign: "center",
     },
     description: {
         fontSize: "1.1rem",
-        color: "#4b5563",
+        color: colors.textGray,
         lineHeight: "1.6",
         marginBottom: "2rem",
         textAlign: "center",
     },
     descriptionDark: {
         fontSize: "1.1rem",
-        color: "#d1d5db",
+        color: colors.lightTextGray,
         lineHeight: "1.6",
         marginBottom: "2rem",
         textAlign: "center",
@@ -194,7 +195,7 @@ const styles = {
         gap: "1.5rem",
     },
     projectCard: {
-        backgroundColor: "rgba(59, 130, 246, 0.1)",
+        backgroundColor: colors.blueWhite,
         padding: "1.5rem",
         borderRadius: "12px",
         textAlign: "center",
@@ -202,7 +203,7 @@ const styles = {
         transition: "transform 0.3s ease",
     },
     projectCardDark: {
-        backgroundColor: "rgba(59, 130, 246, 0.2)",
+        backgroundColor: colors.lightdarkBlue,
         padding: "1.5rem",
         borderRadius: "12px",
         textAlign: "center",
@@ -211,7 +212,7 @@ const styles = {
     },
     projectIcon: {
         fontSize: "2rem",
-        color: "#3b82f6",
+        color: colors.primaryBlue,
         marginBottom: "1rem",
     },
     repoLink: {
@@ -219,7 +220,7 @@ const styles = {
         alignItems: "center",
         gap: "0.5rem",
         marginTop: "1rem",
-        color: "#3b82f6",
+        color: colors.primaryBlue,
         textDecoration: "none",
         fontWeight: "500",
     },
@@ -228,31 +229,28 @@ const styles = {
         alignItems: "center",
         gap: "0.5rem",
         marginTop: "1rem",
-        color: "#60a5fa",
+        color: colors.lightBlue,
         textDecoration: "none",
         fontWeight: "500",
     },
-    linkIcon: {
-        fontSize: "1.2rem",
-    },
     loading: {
         textAlign: "center",
-        color: "#4b5563",
+        color: colors.textGray,
         fontSize: "1.1rem",
     },
     loadingDark: {
         textAlign: "center",
-        color: "#d1d5db",
+        color: colors.lightTextGray,
         fontSize: "1.1rem",
     },
     error: {
         textAlign: "center",
-        color: "#ff4d4f",
+        color: colors.errorRed,
         fontSize: "1.1rem",
     },
     errorDark: {
         textAlign: "center",
-        color: "#ff4d4f",
+        color: colors.errorRed,
         fontSize: "1.1rem",
     },
     recentProgress: {
@@ -263,14 +261,14 @@ const styles = {
     },
     progressTitle: {
         fontSize: "1.8rem",
-        color: "#1f2937",
+        color: colors.darkerGray,
         marginBottom: "1rem",
         fontWeight: "600",
         textAlign: "center",
     },
     progressTitleDark: {
         fontSize: "1.8rem",
-        color: "#f9f9f9",
+        color: colors.darkText,
         marginBottom: "1rem",
         fontWeight: "600",
         textAlign: "center",
@@ -281,7 +279,7 @@ const styles = {
         gap: "1.5rem",
     },
     commitCard: {
-        backgroundColor: "rgba(59, 130, 246, 0.1)",
+        backgroundColor: colors.blueWhite,
         padding: "1.5rem",
         borderRadius: "12px",
         textAlign: "center",
@@ -289,7 +287,7 @@ const styles = {
         transition: "transform 0.3s ease",
     },
     commitCardDark: {
-        backgroundColor: "rgba(59, 130, 246, 0.2)",
+        backgroundColor: colors.lightdarkBlue,
         padding: "1.5rem",
         borderRadius: "12px",
         textAlign: "center",
@@ -297,8 +295,9 @@ const styles = {
         transition: "transform 0.3s ease",
     },
     textWhite: {
-        color: "#ffffff",
+        color: colors.white,
     },
 };
+
 
 export default ProjectsPage;

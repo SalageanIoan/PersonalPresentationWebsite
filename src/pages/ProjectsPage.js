@@ -151,6 +151,7 @@ const styles = {
         boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
         backdropFilter: "blur(10px)",
         border: `1px solid ${colors.darkBorder}`,
+        width: "100%",
     },
     containerDark: {
         backgroundColor: colors.darkCardBackground,
@@ -160,6 +161,7 @@ const styles = {
         boxShadow: "0 8px 32px rgba(0, 0, 0, 0.5)",
         backdropFilter: "blur(10px)",
         border: `1px solid ${colors.darkBorder}`,
+        width: "100%",
     },
     title: {
         fontSize: "2.5rem",
@@ -201,6 +203,7 @@ const styles = {
         textAlign: "center",
         cursor: "pointer",
         transition: "transform 0.3s ease",
+        wordWrap: "break-word",
     },
     projectCardDark: {
         backgroundColor: colors.lightdarkBlue,
@@ -209,6 +212,7 @@ const styles = {
         textAlign: "center",
         cursor: "pointer",
         transition: "transform 0.3s ease",
+        wordWrap: "break-word",
     },
     projectIcon: {
         fontSize: "2rem",
@@ -285,6 +289,7 @@ const styles = {
         textAlign: "center",
         cursor: "pointer",
         transition: "transform 0.3s ease",
+        wordWrap: "break-word",
     },
     commitCardDark: {
         backgroundColor: colors.lightdarkBlue,
@@ -293,9 +298,36 @@ const styles = {
         textAlign: "center",
         cursor: "pointer",
         transition: "transform 0.3s ease",
+        wordWrap: "break-word",
     },
     textWhite: {
         color: colors.white,
+    },
+    '@media (max-width: 768px)': {
+        title: {
+            fontSize: "2rem",
+        },
+        titleDark: {
+            fontSize: "2rem",
+        },
+        description: {
+            fontSize: "1rem",
+        },
+        descriptionDark: {
+            fontSize: "1rem",
+        },
+        projectCard: {
+            padding: "1rem",
+        },
+        projectCardDark: {
+            padding: "1rem",
+        },
+        commitCard: {
+            padding: "1rem",
+        },
+        commitCardDark: {
+            padding: "1rem",
+        },
     },
 };
 

@@ -18,7 +18,7 @@ const Header = () => {
         window.addEventListener("resize", checkMobile);
         return () => window.removeEventListener("resize", checkMobile);
     }, []);
-    
+
     const MobileMenu = () => (
         <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -26,16 +26,16 @@ const Header = () => {
             exit={{ opacity: 0, y: -20 }}
             style={darkMode ? styles.mobileMenuDark : styles.mobileMenu}
         >
-            <Link to="/" style={styles.mobileLink} onClick={() => setIsMenuOpen(false)}>
+            <Link to="/" style={darkMode ? styles.mobileLinkDark : styles.mobileLink} onClick={() => setIsMenuOpen(false)}>
                 <FiHome /> Home
             </Link>
-            <Link to="/projects" style={styles.mobileLink} onClick={() => setIsMenuOpen(false)}>
+            <Link to="/projects" style={darkMode ? styles.mobileLinkDark : styles.mobileLink} onClick={() => setIsMenuOpen(false)}>
                 <FiFolder /> Projects
             </Link>
-            <Link to="/about" style={styles.mobileLink} onClick={() => setIsMenuOpen(false)}>
+            <Link to="/about" style={darkMode ? styles.mobileLinkDark : styles.mobileLink} onClick={() => setIsMenuOpen(false)}>
                 <FiUser /> About
             </Link>
-            <Link to="/contact" style={styles.mobileLink} onClick={() => setIsMenuOpen(false)}>
+            <Link to="/contact" style={darkMode ? styles.mobileLinkDark : styles.mobileLink} onClick={() => setIsMenuOpen(false)}>
                 <FiMail /> Contact
             </Link>
         </motion.div>
@@ -208,6 +208,16 @@ const styles = {
     mobileLink: {
         textDecoration: 'none',
         color: '#1f2937',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.5rem',
+        padding: '0.5rem 1rem',
+        borderRadius: '6px',
+        transition: 'background-color 0.2s',
+    },
+    mobileLinkDark: {
+        textDecoration: 'none',
+        color: 'white',
         display: 'flex',
         alignItems: 'center',
         gap: '0.5rem',

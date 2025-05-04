@@ -25,13 +25,3 @@ const styles = {
 };
 
 export default Footer;
-
-/*
- <Link to="/" style={styles.logoLink}>
-                <img
-                    src="/logo.png"
-                    alt="Portfolio Logo"
-                    style={styles.logo}
-                />
-            </Link>
- */
